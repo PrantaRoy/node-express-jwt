@@ -6,10 +6,9 @@ dotenv.config();
 
 const checklogin = async (req , res, next) => {
      let token;
-
-     if(req.headers.authorization && res.headers.authorization.startWith('Bearer')){
+     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
           try {
-               token = req.headers.headers.split(' ')[1];
+               token = req.headers.authorization.split(' ')[1];
                const decoded = jwt.verify(token , process.env.JWT_SECRET);
                req.user = await User.findById(decoded.id).select('-password');
                next();

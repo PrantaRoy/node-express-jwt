@@ -11,6 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/api/auth' , require('./routes/authRoutes'));
+app.use('/api/todo' , require('./routes/todoRoutes'));
 
 const PORT = process.env.PORT || 5000;
 

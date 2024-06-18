@@ -29,7 +29,7 @@ exports.registerUser = async (req , res) => {
                email: user.email,
                phone: user.phone,
                address: user.address,
-               token: generateToken(user.id),
+               token: generateToken(user._id),
           });
      } catch (error) {
           console.log(error);
@@ -37,8 +37,6 @@ exports.registerUser = async (req , res) => {
                'message' : 'Server Error'
           })
      };
-
-
 };
 
 
